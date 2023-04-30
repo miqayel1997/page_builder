@@ -1,7 +1,7 @@
 <template>
     <div
         ref="draggable"
-        :class="[{ fixed: dragging }, 'unselectable']"
+        :class="[{ 'fixed z-50': dragging }, 'unselectable']"
         :style="[
             dragging
                 ? { width: `${width}px`, left: `${left}px`, top: `${top}px` }
