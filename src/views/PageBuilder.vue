@@ -1,6 +1,8 @@
 <template>
     <div class="flex">
-        <div class="flex h-screen w-1/4 flex-col gap-3 bg-slate-300 px-3 py-8">
+        <div
+            class="fixed flex h-full w-1/4 flex-col gap-3 bg-slate-300 px-3 py-8"
+        >
             <div
                 v-for="(elementType, index) in elementTypes"
                 :key="index"
@@ -22,7 +24,7 @@
             </div>
         </div>
 
-        <div ref="canvas" class="prose h-screen w-3/4 p-7">
+        <div ref="canvas" class="prose ml-auto h-screen w-3/4 p-7">
             <div v-for="(element, index) in canvasElements" :key="index">
                 <component :is="element.tag" :style="{ all: 'revert' }">
                     {{ element.text }}
