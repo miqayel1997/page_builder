@@ -4,10 +4,17 @@
             <div
                 v-for="(elementType, index) in elementTypes"
                 :key="index"
-                class="h-12"
+                class="relative"
             >
-                <Draggable
+                <div
                     class="flex h-12 cursor-move flex-col justify-center bg-slate-600 px-3 text-center text-white"
+                    @drop="onDropElement($event, elementType)"
+                >
+                    {{ elementType.title }}
+                </div>
+
+                <Draggable
+                    class="absolute left-0 top-0 flex h-12 w-full cursor-move flex-col justify-center bg-slate-600 px-3 text-center text-white"
                     @drop="onDropElement($event, elementType)"
                 >
                     {{ elementType.title }}

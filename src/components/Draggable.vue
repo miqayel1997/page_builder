@@ -29,15 +29,19 @@ export default {
         };
     },
     mounted() {
-        window.addEventListener('mousemove', (event) => {
+        window.addEventListener('mousemove', this.onMouseMove);
+    },
+    beforeUnmount() {
+        window.removeEventListener('mousemove', this.onMouseMove);
+    },
+    methods: {
+        onMouseMove(event) {
             if (!this.dragging) {
                 return;
             }
 
             this.bindToCursor(event.clientX, event.clientY);
-        });
-    },
-    methods: {
+        },
         onMouseDown(event) {
             this.width = this.$refs.draggable.offsetWidth;
             this.initialLeft = event.clientX - this.$refs.draggable.offsetLeft;
